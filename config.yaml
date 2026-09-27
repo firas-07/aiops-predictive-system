@@ -1,0 +1,101 @@
+app:
+  name: "AIOps Predictive System"
+  version: "1.0.0"
+  env: "production"
+  debug: false
+
+data:
+  raw_data_path: "data/raw/chatgpt_azure_synthetic_telemetry_50000.csv"
+  processed_data_path: "data/processed/telemetry_clean.parquet"
+  features_data_path: "data/features/features_matrix.parquet"
+  target_metrics:
+    - "cpu_percent"
+    - "memory_percent"
+    - "disk_io_mb_s"
+    - "latency_ms"
+    - "http_errors"
+    - "http_success"
+    - "network_mb_s"
+    - "request_volume"
+  label_columns:
+    - "app_status"
+    - "failure_event"
+  timestamp_column: "timestamp"
+  expected_interval_minutes: 1
+  missing_strategy: "interpolate"  # interpolate, forward_fill, drop
+  outlier_method: "iqr"            # iqr, rolling_zscore
+
+features:
+  lags: [1, 5, 10, 15, 30, 60]
+  rolling_windows: [5, 15, 30, 60]
+  deltas: [1, 5, 15]
+  cyclical_time: true
+
+forecasting:
+  default_horizon_minutes: 60
+  max_horizon_minutes: 120
+  model_type: "recursive"          # recursive forecasting
+  train_split: 0.70
+  val_split: 0.15
+  test_split: 0.15
+  random_seed: 42
+
+lightgbm_params:
+  n_estimators: 150
+  learning_rate: 0.05
+  num_leaves: 31
+  max_depth: -1
+  min_child_samples: 20
+  subsample: 0.8
+  colsample_bytree: 0.8
+  random_state: 42
+  n_jobs: -1
+
+thresholds:
+  cpu_percent:
+    enabled: true
+    operator: ">"
+    value: 90.0
+    unit: "%"
+    critical_threshold: 95.0
+  memory_percent:
+    enabled: true
+    operator: ">"
+    value: 85.0
+    unit: "%"
+    critical_threshold: 90.0
+  disk_io_mb_s:
+    enabled: true
+    operator: ">"
+    value: 80.0
+    unit: "MB/s"
+    critical_threshold: 100.0
+  latency_ms:
+    enabled: true
+    operator: ">"
+    value: 500.0
+    unit: "ms"
+    critical_threshold: 800.0
+  http_errors:
+    enabled: true
+    operator: ">"
+    value: 50.0
+    unit: "count/min"
+    critical_threshold: 100.0
+  network_mb_s:
+    enabled: true
+    operator: ">"
+    value: 70.0
+    unit: "MB/s"
+    critical_threshold: 90.0
+  request_volume:
+    enabled: true
+    operator: ">"
+    value: 4000.0
+    unit: "req/min"
+    critical_threshold: 5000.0
+
+risk_rules:
+  critical_minutes: 15     # Threshold predicted within 15 min -> CRITICAL
+  warning_minutes: 45      # Threshold predicted within 45 min -> WARNING
+                           # Beyond 45 min or not reached -> NORMAL

@@ -1,0 +1,151 @@
+# ==============================================================================
+# AIOps Predictive System - Git Ignore Rules
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. Python Virtual Environments
+# ------------------------------------------------------------------------------
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# ------------------------------------------------------------------------------
+# 2. Python Bytecode, Caching & Build Artifacts
+# ------------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# ------------------------------------------------------------------------------
+# 3. Node.js & Frontend Build Outputs
+# ------------------------------------------------------------------------------
+node_modules/
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+.vite/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ------------------------------------------------------------------------------
+# 4. Testing, Code Coverage & Linting Cache
+# ------------------------------------------------------------------------------
+.pytest_cache/
+**/.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.nox/
+
+# ------------------------------------------------------------------------------
+# 5. Telemetry Data & Feature Matrices (Ignore heavy binary data)
+# ------------------------------------------------------------------------------
+data/raw/*.csv
+data/raw/*.parquet
+data/processed/*
+data/features/*
+*.parquet
+*.feather
+*.h5
+*.arrow
+
+# Preserve directory structures and small summary configs
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/features/.gitkeep
+!data/raw/dataset_summary.json
+
+# ------------------------------------------------------------------------------
+# 6. Machine Learning Model Artifacts (Ignore binary weights)
+# ------------------------------------------------------------------------------
+models/**/*.joblib
+models/*.joblib
+*.joblib
+*.pkl
+*.pickle
+*.onnx
+*.pt
+*.pth
+*.bin
+!models/.gitkeep
+
+# ------------------------------------------------------------------------------
+# 7. Application Runtime State & Sensitive Registry
+# ------------------------------------------------------------------------------
+# Contains user-configured Azure secrets and local paths
+data/applications.json
+!data/applications.json.example
+
+# ------------------------------------------------------------------------------
+# 8. Environment Variables & Secrets
+# ------------------------------------------------------------------------------
+.env
+.env.*
+*.env
+!.env.example
+
+# ------------------------------------------------------------------------------
+# 9. Logs & Runtime Databases
+# ------------------------------------------------------------------------------
+*.log
+logs/
+*.sqlite
+*.sqlite3
+*.db
+
+# ------------------------------------------------------------------------------
+# 10. Operating System & IDE Specific Files
+# ------------------------------------------------------------------------------
+# OS metadata
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+ehthumbs_vista.db
+Thumbs.db
+desktop.ini
+
+# IDE & Editor caches
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# ------------------------------------------------------------------------------
+# 11. AI Agent / Local Working Directories
+# ------------------------------------------------------------------------------
+.agents/
+.gemini/
+scratch/
+tmp/
+temp/

@@ -1,0 +1,161 @@
+{
+  "rows": 50000,
+  "cols": [
+    "timestamp",
+    "app_id",
+    "cpu_percent",
+    "memory_percent",
+    "disk_io_mb_s",
+    "latency_ms",
+    "http_errors",
+    "http_success",
+    "network_mb_s",
+    "request_volume",
+    "app_status",
+    "failure_event",
+    "hour",
+    "day_of_week",
+    "parsed_timestamp"
+  ],
+  "min_timestamp": "2026-01-01 00:00:00+00:00",
+  "max_timestamp": "2026-02-04 17:19:00+00:00",
+  "duplicate_timestamps": 0,
+  "missing_values": {
+    "timestamp": 0,
+    "app_id": 0,
+    "cpu_percent": 0,
+    "memory_percent": 0,
+    "disk_io_mb_s": 0,
+    "latency_ms": 0,
+    "http_errors": 0,
+    "http_success": 0,
+    "network_mb_s": 0,
+    "request_volume": 0,
+    "app_status": 0,
+    "failure_event": 0,
+    "hour": 0,
+    "day_of_week": 0,
+    "parsed_timestamp": 0
+  },
+  "app_status_counts": {
+    "healthy": 47199,
+    "degraded": 2046,
+    "down": 755
+  },
+  "failure_event_counts": {
+    "0": 47199,
+    "1": 2801
+  },
+  "stats": {
+    "cpu_percent": {
+      "count": 50000.0,
+      "mean": 45.116198600000004,
+      "std": 14.751213483688144,
+      "min": 20.3,
+      "25%": 33.14,
+      "50%": 41.31,
+      "75%": 54.94,
+      "max": 99.0
+    },
+    "memory_percent": {
+      "count": 50000.0,
+      "mean": 57.6008672,
+      "std": 6.111267513354047,
+      "min": 48.7,
+      "25%": 52.36,
+      "50%": 56.98,
+      "75%": 61.36,
+      "max": 86.0
+    },
+    "disk_io_mb_s": {
+      "count": 50000.0,
+      "mean": 33.3110934,
+      "std": 12.760282186633104,
+      "min": 6.11,
+      "25%": 22.24,
+      "50%": 32.285,
+      "75%": 42.78,
+      "max": 82.31
+    },
+    "latency_ms": {
+      "count": 50000.0,
+      "mean": 166.79729440000003,
+      "std": 68.80365377715918,
+      "min": 82.82,
+      "25%": 128.04,
+      "50%": 148.5,
+      "75%": 177.02,
+      "max": 580.01
+    },
+    "http_errors": {
+      "count": 50000.0,
+      "mean": 8.09158,
+      "std": 16.207281284130676,
+      "min": 0.0,
+      "25%": 2.0,
+      "50%": 4.0,
+      "75%": 8.0,
+      "max": 184.0
+    },
+    "http_success": {
+      "count": 50000.0,
+      "mean": 2328.8094,
+      "std": 852.2826753999026,
+      "min": 956.0,
+      "25%": 1522.0,
+      "50%": 2252.0,
+      "75%": 3024.0,
+      "max": 5337.0
+    },
+    "network_mb_s": {
+      "count": 50000.0,
+      "mean": 22.0529896,
+      "std": 8.86935529627488,
+      "min": 3.56,
+      "25%": 14.22,
+      "50%": 21.35,
+      "75%": 28.78,
+      "max": 54.64
+    },
+    "request_volume": {
+      "count": 50000.0,
+      "mean": 2336.90098,
+      "std": 858.7438996794937,
+      "min": 973.0,
+      "25%": 1526.0,
+      "50%": 2259.0,
+      "75%": 3032.0,
+      "max": 5457.0
+    },
+    "failure_event": {
+      "count": 50000.0,
+      "mean": 0.05602,
+      "std": 0.22996264317568002,
+      "min": 0.0,
+      "25%": 0.0,
+      "50%": 0.0,
+      "75%": 0.0,
+      "max": 1.0
+    },
+    "hour": {
+      "count": 50000.0,
+      "mean": 11.4308,
+      "std": 6.904184580042331,
+      "min": 0.0,
+      "25%": 5.0,
+      "50%": 11.0,
+      "75%": 17.0,
+      "max": 23.0
+    },
+    "day_of_week": {
+      "count": 50000.0,
+      "mean": 3.008,
+      "std": 2.0059951346724665,
+      "min": 0.0,
+      "25%": 1.0,
+      "50%": 3.0,
+      "75%": 5.0,
+      "max": 6.0
+    }
+  }
+}
